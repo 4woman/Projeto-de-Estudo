@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Sistema de Endereços";
+}
+
+<!-- Bootstrap Icons já incluído no head via CDN -->
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-5">Modulo  Endereços</h1>
+        <p class="lead">Escolha uma ação para gerenciar seus endereços:</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4 text-center">
+                <div class="d-flex justify-content-around flex-wrap gap-3">
+
+                    <!-- Botão Cadastrar -->
+                    <a class="btn btn-success btn-lg square-btn" asp-controller="Endereco" asp-action="Create" title="Cadastrar Endereço">
+                        <i class="bi bi-plus-circle"></i>
+                    </a>
+
+                    <!-- Botão Listar -->
+                    <a class="btn btn-primary btn-lg square-btn" asp-controller="Endereco" asp-action="List" title="Listar Endereços">
+                        <i class="bi bi-list-ul"></i>
+                    </a>
+
+                    <!-- Botão Editar -->
+                    <a class="btn btn-warning btn-lg square-btn" asp-controller="Endereco" asp-action="Edit" title="Editar Endereço">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+
+                    <!-- Botão Deletar -->
+                    <a class="btn btn-danger btn-lg square-btn" asp-controller="Endereco" asp-action="Delete" title="Deletar Endereço">
+                        <i class="bi bi-trash3"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .square-btn {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+
+        .square-btn:hover {
+            transform: scale(1.05);
+        }
+</style>
