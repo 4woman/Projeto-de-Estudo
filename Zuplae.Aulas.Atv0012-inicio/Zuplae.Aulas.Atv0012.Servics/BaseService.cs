@@ -1,0 +1,95 @@
+﻿using Zuplae.Aulas.Atv0012.Data;
+using Zuplae.Aulas.Atv0012.Models;
+
+namespace Zuplae.Aulas.Atv0012.Servics
+{
+    public class BaseService<M> : IService<M> where M : BaseModel, new()
+    {
+        #region Propriedades
+        private readonly OrganizerContext _context;
+        private M modelOriginal = new ();
+        #endregion
+        public BaseService(OrganizerContext context)
+        {
+            _context = context;
+        }
+        #region Cadastrar
+        public int Cadastrar(M model)
+        {
+                _context.Add(model);
+                _context.SaveChanges();
+            return model.Id;
+        }
+        #endregion
+
+        #region Editar
+            public bool Editar(M model)
+            {
+                var modelOriginal = ObterPorId(model.Id);
+
+            if (modelOriginal != null)
+                {
+                    _context.Entry(modelOriginal).CurrentValues.SetValues(model);
+                    _context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            
+            }
+        #endregion
+
+        #region Listar
+            public List<M> Listar()
+            {
+                return _context.Set<M>().ToList();
+            }
+        #endregion
+
+        #region ListarPorId
+            public M ListarPorId(int id) 
+            {
+                this.modelOriginal = this.ObterPorId(id);
+                return this.modelOriginal;
+            }
+        #endregion
+
+        #region Deletar
+            public bool Deletar(int id)
+            {
+                this.modelOriginal = this.ObterPorId(id);
+                if (this.modelOriginal != null)
+                {
+                    _context.Set<M>().Remove(this.modelOriginal);
+                    _context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        #endregion
+
+        #region Metodos Auxiliares
+        private M ObterPorId(int id)
+        {
+            return _context.Set<M>().FirstOrDefault(e => e.Id == id);
+        }
+
+
+        //    private Endereco CriarEndereco(string logradouro, string numero, string bairro, string cidade, string estado, string cep)
+        //    {
+        //        this.endereco.Logradouro = logradouro;
+        //        this.endereco.Numero = numero;
+        //        this.endereco.Bairro = bairro;
+        //        this.endereco.Cidade = cidade;
+        //        this.endereco.Estado = estado;
+        //        this.endereco.Cep = cep;
+        //        return this.endereco;
+        //    }
+        #endregion
+    }
+}

@@ -15,7 +15,7 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
     {
         #region Atributos
             private FornecedorService fornecedorService = new FornecedorService();
-            private EnderecoService enderecoService = new EnderecoService();
+            private BaseService enderecoService = new BaseService();
         #endregion
 
         #region ExecutarMenu

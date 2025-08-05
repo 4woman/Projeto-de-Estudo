@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zuplae.Aulas.Atv0012.Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zuplae.Aulas.Atv0012.Web", "Zuplae.Aulas.Atv0012.Web\Zuplae.Aulas.Atv0012.Web.csproj", "{CE6BACD2-F99C-49AB-814E-490E5BF43DA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zuplae.Aulas.Atv0012.Data", "Zuplae.Aulas.Atv0012.Data\Zuplae.Aulas.Atv0012.Data.csproj", "{5EFF97CB-DE8C-4AD3-A0FF-F175A985BE86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CE6BACD2-F99C-49AB-814E-490E5BF43DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE6BACD2-F99C-49AB-814E-490E5BF43DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE6BACD2-F99C-49AB-814E-490E5BF43DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EFF97CB-DE8C-4AD3-A0FF-F175A985BE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFF97CB-DE8C-4AD3-A0FF-F175A985BE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFF97CB-DE8C-4AD3-A0FF-F175A985BE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFF97CB-DE8C-4AD3-A0FF-F175A985BE86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

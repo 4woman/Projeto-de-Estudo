@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Zuplae.Aulas.Atv0012.Data;
 using Zuplae.Aulas.Atv0012.Servics;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,8 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Database OrganizerContext
+builder.Services.AddDbContext<OrganizerContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("postgresql");
+    options.UseNpgsql(connectionString);
+});
+
 // Services
-builder.Services.AddScoped<IEnderecoService, EnderecoService>();
+builder.Services.AddScoped<EnderecoService>();
 
 var app = builder.Build();
 

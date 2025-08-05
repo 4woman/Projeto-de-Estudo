@@ -13,7 +13,7 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
     internal class TelaProduto
     {
         #region Atributos
-        private EnderecoService enderecoService = new EnderecoService();
+        private BaseService enderecoService = new BaseService();
         private FornecedorService fornecedorService = new FornecedorService();
         private ProdutoService produtoService = new ProdutoService();
         #endregion

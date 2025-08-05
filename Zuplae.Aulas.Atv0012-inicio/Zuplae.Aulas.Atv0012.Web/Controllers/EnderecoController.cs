@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Zuplae.Aulas.Atv0012.Models;
 using Zuplae.Aulas.Atv0012.Servics;
 
 namespace Zuplae.Aulas.Atv0012.Web.Controllers
 {
     public class EnderecoController : Controller
     {
-        private readonly IEnderecoService _enderecoService;
+        private readonly EnderecoService _enderecoService;
 
-        public EnderecoController(IEnderecoService enderecoService)
+        public EnderecoController(EnderecoService enderecoService)
         {
             _enderecoService = enderecoService;
         }
@@ -25,9 +26,9 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string logradouro, string numero, string bairro, string cidade, string estado, string cep)
+        public IActionResult Create(Endereco model)
         {
-            var endereco = _enderecoService.Cadastrar(logradouro, numero, bairro, cidade, estado, cep);
+            var endereco = _enderecoService.Cadastrar(model);
             return RedirectToAction("List");
         }
         [HttpGet]
@@ -48,9 +49,9 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
             return View(endereco);
         }
         [HttpPost]
-        public IActionResult Edit(int id, string logradouro, string numero, string bairro, string cidade, string estado, string cep)
+        public IActionResult Edit(Endereco model)
         {
-            var result = _enderecoService.Editar(id, logradouro, numero, bairro, cidade, estado, cep);
+            var result = _enderecoService.Editar(model);
             if (result)
             {
                 return RedirectToAction("List");

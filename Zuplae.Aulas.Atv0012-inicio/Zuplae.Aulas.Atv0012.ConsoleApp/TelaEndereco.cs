@@ -11,7 +11,7 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
     internal class TelaEndereco
     {
         #region Atributos
-        private EnderecoService enderecoService = new EnderecoService();
+        private BaseService enderecoService = new BaseService();
 
         #endregion
 

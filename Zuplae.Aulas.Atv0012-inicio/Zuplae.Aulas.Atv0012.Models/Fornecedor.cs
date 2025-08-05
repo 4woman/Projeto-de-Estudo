@@ -23,8 +23,10 @@ namespace Zuplae.Aulas.Atv0012.Models
         }
 
         public string CNPJ { get; set; }
+        public int EnderecoId { get; set; }
         public Endereco Endereco { get; set; }
-        
+        public List<Produto> Produtos { get; set; } = new List<Produto>();
+
         #endregion
 
         #region Construtor
