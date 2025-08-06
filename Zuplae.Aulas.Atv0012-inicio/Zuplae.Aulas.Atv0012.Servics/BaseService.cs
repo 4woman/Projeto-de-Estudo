@@ -78,18 +78,6 @@ namespace Zuplae.Aulas.Atv0012.Servics
         {
             return _context.Set<M>().FirstOrDefault(e => e.Id == id);
         }
-
-
-        //    private Endereco CriarEndereco(string logradouro, string numero, string bairro, string cidade, string estado, string cep)
-        //    {
-        //        this.endereco.Logradouro = logradouro;
-        //        this.endereco.Numero = numero;
-        //        this.endereco.Bairro = bairro;
-        //        this.endereco.Cidade = cidade;
-        //        this.endereco.Estado = estado;
-        //        this.endereco.Cep = cep;
-        //        return this.endereco;
-        //    }
         #endregion
     }
 }

@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Zuplae.Aulas.Atv0012.Models;
+using Zuplae.Aulas.Atv0012.Servics;
 
 namespace Zuplae.Aulas.Atv0012.Web.Controllers
 {
-    public class ProdutoController : Controller
+    public class ProdutoController : BaseController<Produto>
     {
-        public IActionResult Index()
+        public ProdutoController(IService<Produto> service) : base(service)
         {
-            return View();
         }
+
+
     }
 }

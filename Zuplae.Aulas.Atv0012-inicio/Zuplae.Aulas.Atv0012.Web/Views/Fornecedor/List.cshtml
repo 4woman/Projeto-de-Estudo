@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Zuplae.Aulas.Atv0012.Models.Endereco>
+﻿@model IEnumerable<Zuplae.Aulas.Atv0012.Models.Fornecedor>
 
 @{
     ViewData["Title"] = "List";
@@ -11,27 +11,20 @@
         <i class="bi bi-plus-circle"></i> Novo Cadastro
     </a>
 </p>
-
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Logradouro)
+                @Html.DisplayNameFor(model => model.RazaoSocial)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Numero)
+                @Html.DisplayNameFor(model => model.CNPJ)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Bairro)
+                @Html.DisplayNameFor(model => model.EnderecoId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cep)
+                @Html.DisplayNameFor(model => model.Endereco)
             </th>
             <th></th>
         </tr>
@@ -40,22 +33,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Logradouro)
+                @Html.DisplayFor(modelItem => item.RazaoSocial)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Numero)
+                @Html.DisplayFor(modelItem => item.CNPJ)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
+                @Html.DisplayFor(modelItem => item.EnderecoId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
+                @Html.DisplayFor(modelItem => item.Endereco)
             </td>
                 <td>
                     <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-sm btn-warning">Editar</a>

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Zuplae.Aulas.Atv0012.Data;
+using Zuplae.Aulas.Atv0012.Models;
 using Zuplae.Aulas.Atv0012.Servics;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +16,8 @@ builder.Services.AddDbContext<OrganizerContext>(options =>
 });
 
 // Services
-builder.Services.AddScoped<EnderecoService>();
+builder.Services.AddScoped<IService<Endereco>,EnderecoService>();
+builder.Services.AddScoped<IService<Fornecedor>, FornecedorService>();
 
 var app = builder.Build();
 
