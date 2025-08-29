@@ -1,0 +1,53 @@
+﻿@model Zuplae.Aulas.Atv0012.Web.Models.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar o Produto</h1>
+
+<h4>Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Produto.NomeProduto" class="control-label"></label>
+                <input asp-for="Produto.NomeProduto" class="form-control" />
+                <span asp-validation-for="Produto.NomeProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.CodigoProduto" class="control-label"></label>
+                <input asp-for="Produto.CodigoProduto" class="form-control" />
+                <span asp-validation-for="Produto.CodigoProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Preco" class="control-label"></label>
+                <input asp-for="Produto.Preco" class="form-control" />
+                <span asp-validation-for="Produto.Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Endereço</label>
+                <select asp-for="Produto.Fornecedor.Id" asp-items="Model.Fornecedores" class="form-control">
+                    <option value="">-- selecione --</option>
+                </select>
+                <span asp-validation-for="Produto.Fornecedor.Id" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Voltar
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

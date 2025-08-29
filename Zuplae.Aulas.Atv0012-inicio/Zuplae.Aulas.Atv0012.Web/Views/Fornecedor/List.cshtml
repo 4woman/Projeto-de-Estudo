@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Zuplae.Aulas.Atv0012.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Listas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Novo Cadastro
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RazaoSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CNPJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RazaoSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CNPJ)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Endereco.Logradouro) - @Html.DisplayFor(modelItem => item.Endereco.Numero) -
+                    @Html.DisplayFor(modelItem => item.Endereco.Cidade)
+            </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Tem certeza que deseja excluir este item?');" })
+                </td>
+
+        </tr>
+}
+    </tbody>
+</table>
