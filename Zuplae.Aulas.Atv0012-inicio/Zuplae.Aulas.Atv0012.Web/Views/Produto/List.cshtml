@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Zuplae.Aulas.Atv0012.Models.Fornecedor>
+﻿@model IEnumerable<Zuplae.Aulas.Atv0012.Models.Produto>
 
 @{
     ViewData["Title"] = "List";
 }
 
-<h1>Listas</h1>
+<h1>Listas de Produtos</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-success">
@@ -15,13 +15,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RazaoSocial)
+                @Html.DisplayNameFor(model => model.NomeProduto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CNPJ)
+                @Html.DisplayNameFor(model => model.CodigoProduto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Endereco)
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornecedor)
             </th>
             <th></th>
         </tr>
@@ -30,21 +33,21 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RazaoSocial)
+                @Html.DisplayFor(modelItem => item.NomeProduto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CNPJ)
+                @Html.DisplayFor(modelItem => item.CodigoProduto)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Endereco.Logradouro) - @Html.DisplayFor(modelItem => item.Endereco.Numero) -
-                    @Html.DisplayFor(modelItem => item.Endereco.Cidade)
+                    @Html.DisplayFor(modelItem => item.Preco)
             </td>
-
+            <td>
+               @Html.DisplayFor(modelItem => item.Fornecedor.RazaoSocial) @Html.DisplayFor(modelItem => item.Fornecedor.CNPJ)
+            </td>
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
                     @Html.ActionLink("Excluir", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Tem certeza que deseja excluir este item?');" })
                 </td>
-
         </tr>
 }
     </tbody>

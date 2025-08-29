@@ -2,6 +2,14 @@ using Microsoft.EntityFrameworkCore;
 using Zuplae.Aulas.Atv0012.Data;
 using Zuplae.Aulas.Atv0012.Models;
 using Zuplae.Aulas.Atv0012.Servics;
+using Zuplae.Aulas.Atv0012.Web.Extensions;
+
+using System.Globalization;
+
+var cultureInfo = new CultureInfo("pt-BR");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +24,9 @@ builder.Services.AddDbContext<OrganizerContext>(options =>
 });
 
 // Services
-builder.Services.AddScoped<IService<Endereco>,EnderecoService>();
-builder.Services.AddScoped<IService<Fornecedor>, FornecedorService>();
+builder.Services.AddAppServices();
+
+
 
 var app = builder.Build();
 

@@ -11,15 +11,21 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Zuplae.Aulas.Atv0012.ConsoleApp
 {
-    internal class TelaFornecedor
+    public class TelaFornecedor
     {
         #region Atributos
-            private FornecedorService fornecedorService = new FornecedorService();
-            private BaseService enderecoService = new BaseService();
+            private FornecedorService _fornecedorService;
+        private EnderecoService enderecoService;
         #endregion
+        public TelaFornecedor()
+        {}
+        public TelaFornecedor(FornecedorService service)
+        {
+            _fornecedorService = service;
+        }
 
         #region ExecutarMenu
-            public void ExecutarMenu()
+        public void ExecutarMenu()
             {
                 ExibirMensagem();
                 ExibirMenu();
@@ -101,7 +107,15 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
                     return;
                 }
 
-                int idFornecedor = fornecedorService.Cadastrar(razaoSocial, cnpj, enderecoSelecionado);
+            var fornecedor = new Fornecedor
+            {
+                RazaoSocial = razaoSocial,
+                CNPJ = cnpj,
+                Endereco = enderecoSelecionado
+                
+            };
+
+            int idFornecedor = _fornecedorService.Cadastrar(fornecedor);
 
                 Console.WriteLine($"\nFornecedor cadastrado com sucesso!\nID: {idFornecedor}" +
                 $" - Razão Social: {razaoSocial} - CNPJ: {cnpj} - Endereço: {enderecoSelecionado}");
@@ -128,7 +142,7 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
         {
             Console.WriteLine("Digite o ID do Fornecedor que deseja listar:");
             int id = Convert.ToInt32(Console.ReadLine());
-            fornecedorService.ListarPorId(id);
+            _fornecedorService.ListarPorId(id);
             BuscarEnderecoId(id);
         }
         #endregion

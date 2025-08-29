@@ -1,16 +1,17 @@
 ﻿@model Zuplae.Aulas.Atv0012.Web.Models.FornecedorViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Cadastro do Fornecedor</h1>
+<h1>Editar</h1>
 
-<h4>Fornecedor</h4>
+<h4>Editar o cadastro do Fornecedor</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Fornecedor.Id" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Fornecedor.RazaoSocial" class="control-label"></label>
@@ -23,15 +24,15 @@
                 <span asp-validation-for="Fornecedor.CNPJ" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Endereco</label>
+                <label>Endereço</label>
                 <select asp-for="Fornecedor.Endereco.Id" asp-items="Model.Enderecos" class="form-control">
-                    <option value="">Selecione um Endereço</option>
+                    <option value="">-- selecione --</option>
                 </select>
                 <span asp-validation-for="Fornecedor.Endereco.Id" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -44,5 +45,8 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+

@@ -1,4 +1,5 @@
-﻿using Zuplae.Aulas.Atv0012.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Zuplae.Aulas.Atv0012.Data;
 using Zuplae.Aulas.Atv0012.Models;
 
 namespace Zuplae.Aulas.Atv0012.Servics
@@ -42,7 +43,7 @@ namespace Zuplae.Aulas.Atv0012.Servics
         #endregion
 
         #region Listar
-            public List<M> Listar()
+            public virtual List<M> Listar()
             {
                 return _context.Set<M>().ToList();
             }

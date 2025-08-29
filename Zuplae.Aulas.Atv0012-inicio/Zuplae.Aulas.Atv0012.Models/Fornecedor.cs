@@ -9,23 +9,13 @@ namespace Zuplae.Aulas.Atv0012.Models
     public class Fornecedor : BaseModel
     {
         #region Propriedades
-        private string _razaoSocial;
-        public string RazaoSocial { 
-            get
-            {
-                if (string.IsNullOrWhiteSpace(_razaoSocial))
-                {
-                    throw new Exception("Razão social não pode ser vazia nem conter apenas espaços.");
-                }
-                return _razaoSocial.ToUpper();
-            } 
-            set { _razaoSocial = value; } 
-        }
-
+        
+        public string RazaoSocial { get; set; }
+            
         public string CNPJ { get; set; }
-        public int EnderecoId { get; set; }
+        public int? EnderecoId { get; set; }
         public Endereco Endereco { get; set; }
-        public List<Produto> Produtos { get; set; } = new List<Produto>();
+        
 
         #endregion
 

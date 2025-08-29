@@ -8,12 +8,18 @@ using Zuplae.Aulas.Atv0012.Servics;
 
 namespace Zuplae.Aulas.Atv0012.ConsoleApp
 {
-    internal class TelaEndereco
+    public class TelaEndereco
     {
         #region Atributos
-        private BaseService enderecoService = new BaseService();
+        private EnderecoService _enderecoService;
 
         #endregion
+        public TelaEndereco()
+        { }
+        public TelaEndereco(EnderecoService endereco)
+        {
+            _enderecoService = endereco;
+        }
 
         #region ExecutarMenu
         public void ExecutarMenu()
@@ -87,21 +93,38 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
         {
             Console.WriteLine("Digite Logradouro:");
             string logradouro = Console.ReadLine();
+
             Console.WriteLine("Digite Número:");
             string numero = Console.ReadLine();
+
             Console.WriteLine("Digite Bairro:");
             string bairro = Console.ReadLine();
+
             Console.WriteLine("Digite Cidade:");
             string cidade = Console.ReadLine();
+
             Console.WriteLine("Digite Estado:");
             string estado = Console.ReadLine();
+
             Console.WriteLine("Digite CEP:");
             string cep = Console.ReadLine();
 
-            int idendereco = enderecoService.Cadastrar(logradouro, numero, bairro, cidade, estado, cep);
-            Console.WriteLine($"Endereço Cadastrado ID : {idendereco} - Rua {logradouro} - N°: {numero}");
+            var endereco = new Endereco
+            {
+                Logradouro = logradouro,
+                Numero = numero,
+                Bairro = bairro,
+                Cidade = cidade,
+                Estado = estado,
+                Cep = cep
+            };
 
+            
+            int idEndereco = _enderecoService.Cadastrar(endereco);
+
+            Console.WriteLine($"Endereço Cadastrado ID: {idEndereco} - Rua {logradouro} - N°: {numero}");
         }
+
         #endregion
 
         #region Editar
@@ -109,7 +132,7 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
         {
             Console.WriteLine("Digite o ID do endereço que deseja editar:");
             int id = Convert.ToInt32(Console.ReadLine());
-            enderecoService.ListarPorId(id);
+            _enderecoService.ListarPorId(id);
 
         }
         #endregion
@@ -126,7 +149,7 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
         {
             Console.WriteLine("Digite o ID do endereço que deseja listar:");
             int id = Convert.ToInt32(Console.ReadLine());
-            enderecoService.ListarPorId(id);
+            _enderecoService.ListarPorId(id);
             BuscarEnderecoId(id);
         }
         #endregion
@@ -139,7 +162,7 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
         #region Metodos Auxiliares
         private Endereco BuscarEnderecoId(int id)
         {
-            Endereco endereco = enderecoService.ListarPorId(id);
+            Endereco endereco = _enderecoService.ListarPorId(id);
             if (endereco == null)
             {
                 Console.WriteLine("Endereço não encontrado.");

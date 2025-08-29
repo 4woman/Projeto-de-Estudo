@@ -13,10 +13,14 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
     internal class TelaProduto
     {
         #region Atributos
-        private BaseService enderecoService = new BaseService();
-        private FornecedorService fornecedorService = new FornecedorService();
-        private ProdutoService produtoService = new ProdutoService();
+        private EnderecoService enderecoService;
+        private FornecedorService fornecedorService;
+        private ProdutoService produtoService;
         #endregion
+        public TelaProduto()
+        {
+            
+        }
 
         #region ExecutarMenu
         public void ExecutarMenu()
@@ -104,7 +108,15 @@ namespace Zuplae.Aulas.Atv0012.ConsoleApp
                 return;
             }
 
-            int idProduto = produtoService.Cadastrar(nomeProduto, preco, fornSelecionado);
+            var produto = new Produto
+            {
+                NomeProduto = nomeProduto,
+                Preco = preco,
+                Fornecedor = fornSelecionado
+
+            };
+
+            int idProduto = produtoService.Cadastrar(produto);
 
             Console.WriteLine($"\nProduto cadastrado com sucesso!");
             Console.WriteLine($"ID: {idProduto} - Nome: {nomeProduto} - Preço: R${preco:F2} - Fornecedor: {fornSelecionado}");

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Zuplae.Aulas.Atv0012.Data;
@@ -11,9 +12,11 @@ using Zuplae.Aulas.Atv0012.Data;
 namespace Zuplae.Aulas.Atv0012.Data.Migrations
 {
     [DbContext(typeof(OrganizerContext))]
-    partial class OrganizerContextModelSnapshot : ModelSnapshot
+    [Migration("20250828161734_AddEnderecoIdFromFornecedor")]
+    partial class AddEnderecoIdFromFornecedor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
