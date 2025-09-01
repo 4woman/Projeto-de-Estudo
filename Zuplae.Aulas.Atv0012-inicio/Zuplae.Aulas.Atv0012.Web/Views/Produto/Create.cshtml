@@ -1,53 +1,59 @@
 ﻿@model Zuplae.Aulas.Atv0012.Web.Models.ProdutoViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastrar Produto";
 }
 
-<h1>Cadastrar Produtos</h1>
+<div class="container mt-4">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h3 class="mb-0"><i class="bi bi-box-seam"></i> Cadastrar Produto</h3>
+        </div>
+        <div class="card-body p-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
-<h4>Produto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Produto.NomeProduto" class="control-label"></label>
-                <input asp-for="Produto.NomeProduto" class="form-control" />
-                <span asp-validation-for="Produto.NomeProduto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Produto.CodigoProduto" class="control-label"></label>
-                <input asp-for="Produto.CodigoProduto" class="form-control" />
-                <span asp-validation-for="Produto.CodigoProduto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Produto.Preco" class="control-label"></label>
-                <input asp-for="Produto.Preco" type="number" step="0.01" name="Preco" class="form-control" />
-                <span asp-validation-for="Produto.Preco" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Fornecedor</label>
-                <select asp-for="Produto.Fornecedor.Id" asp-items="Model.Fornecedores" class="form-control">
-                    <option value="">Selecione um Fornecedor</option>
-                </select>
-                <span asp-validation-for="Produto.Fornecedor.Id" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="mb-3">
+                    <label asp-for="Produto.NomeProduto" class="form-label fw-semibold"></label>
+                    <input asp-for="Produto.NomeProduto" class="form-control" placeholder="Digite o nome do produto" />
+                    <span asp-validation-for="Produto.NomeProduto" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Produto.CodigoProduto" class="form-label fw-semibold"></label>
+                    <input asp-for="Produto.CodigoProduto" class="form-control" placeholder="Digite o código do produto" />
+                    <span asp-validation-for="Produto.CodigoProduto" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Produto.Preco" class="form-label fw-semibold"></label>
+                    <input asp-for="Produto.Preco" type="number" step="0.01" class="form-control" placeholder="Digite o preço" />
+                    <span asp-validation-for="Produto.Preco" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Fornecedor</label>
+                    <select asp-for="Produto.Fornecedor.Id" asp-items="Model.Fornecedores" class="form-select">
+                        <option value="">-- selecione um fornecedor --</option>
+                    </select>
+                    <span asp-validation-for="Produto.Fornecedor.Id" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left"></i> Voltar
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-save"></i> Cadastrar
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-<br />
-<div>
-    <a asp-action="Index" class="btn btn-secondary">
-        <i class="bi bi-arrow-left"></i> Voltar
-    </a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -2,61 +2,127 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!-- Hero Banner -->
 <section class="hero-banner position-relative text-white d-flex align-items-center">
-
-    <!-- Efeito de overlay para melhor contraste -->
-    <div class="overlay"></div>
-
-    <div class="container position-relative z-index-1">
-        <div class="row justify-content-center text-center">
+    <div class="container position-relative z-index-1 text-center">
+        <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
-                <h1 class="display-3 fw-bold mb-4 text-black animate__animated animate__fadeInDown">
-                    <span class="text-primary">FrotaZ5</span> - Seu Transporte com Excelência
+                <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown text-black">
+                    <span class="text-primary">Frota .NET</span> - Transporte com Excelência
                 </h1>
-
-                <p class="lead fs-4 mb-5 text-black animate__animated animate__fadeIn animate__delay-1s">
+                <p class="lead fs-4 mb-5 animate__animated animate__fadeIn animate__delay-1s text-primary">
                     Soluções logísticas completas, seguras e confiáveis para seu negócio
                 </p>
 
-                <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeInUp animate__delay-1s">
-
-                    <li class="nav-item dropdown ">
-                        <a class="btn btn-outline-primary dropdown-toggle px-5 py-3 fs-5" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-building me-1"></i>Cadastros
+                <div class="row justify-content-center animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <a class="btn btn-outline-primary w-100 py-3 fs-5" asp-controller="Endereco" asp-action="Index">
+                            <i class="fas fa-map-marker-alt me-2"></i>Endereços
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" asp-area="" asp-controller="Endereco" asp-action="Index">
-                                    <i class="fas fa-map-marker-alt me-1"></i>Endereços
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" asp-area="" asp-controller="Fornecedor" asp-action="Index">
-                                    <i class="fas fa-truck me-1"></i>Fornecedores
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" asp-area="" asp-controller="Produto" asp-action="Index">
-                                    <i class="fas fa-box-open me-1"></i>Produtos
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <a class="btn btn-outline-primary w-100 py-3 fs-5" asp-controller="Fornecedor" asp-action="Index">
+                            <i class="fas fa-truck me-2"></i>Fornecedores
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <a class="btn btn-outline-primary w-100 py-3 fs-5" asp-controller="Produto" asp-action="Index">
+                            <i class="fas fa-box-open me-2"></i>Produtos
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção de Serviços -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Nossos Serviços</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <img src="/images/documento.jpg" class="card-img-top" alt="Transporte de Carga">
+                    <div class="card-body">
+                        <h5 class="card-title">Transporte de Cargas</h5>
+                        <p class="card-text">Rápido, seguro e com rastreamento em tempo real para todas as cargas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <img src="/images/Logo da Frota .NET.png" class="card-img-top" alt="Logística">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestão Logística</h5>
+                        <p class="card-text">Planejamento e otimização das rotas para máxima eficiência.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <img src="/images/abastecimento.jpg" class="card-img-top" alt="Entrega rápida">
+                    <div class="card-body">
+                        <h5 class="card-title">Entrega Rápida</h5>
+                        <p class="card-text">Cumprimento de prazos rigorosos com frota moderna e confiável.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
 
-<!-- Adicionar no cabeçalho -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!-- Seção Sobre a Frota -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Nossa Frota</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-3">
+                <img src="/images/truck2.webp" class="img-fluid rounded shadow-sm" alt="Caminhão 1">
+                <h5 class="mt-2">Caminhão Baú</h5>
+            </div>
+            <div class="col-md-3">
+                <img src="/images/truck2.webp" class="img-fluid rounded shadow-sm" alt="Caminhão 2">
+                <h5 class="mt-2">Caminhão Frigorífico</h5>
+            </div>
+            <div class="col-md-3">
+                <img src="/images/truck2.webp" class="img-fluid rounded shadow-sm" alt="Caminhão 3">
+                <h5 class="mt-2">Caminhão Carreta</h5>
+            </div>
+            <div class="col-md-3">
+                <img src="/images/truck2.webp" class="img-fluid rounded shadow-sm" alt="Caminhão 4">
+                <h5 class="mt-2">Caminhão Truck</h5>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Seção Contato -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Entre em Contato</h2>
+        <p class="mb-4">Solicite orçamento ou tire dúvidas sobre nossos serviços de transporte.</p>
+        <a href="mailto:contato@frotaNET.com" class="btn btn-light btn-lg">Enviar E-mail</a>
+    </div>
+</section>
 
+<!-- Estilos adicionais -->
+<style>
+    .hero-banner .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
 
+    .hero-banner h1, .hero-banner p {
+        color: #fff;
+    }
+</style>
 
-
-
-
+<!-- CDN Font Awesome e Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
