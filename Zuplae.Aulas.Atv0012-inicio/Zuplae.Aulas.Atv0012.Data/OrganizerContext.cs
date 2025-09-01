@@ -11,6 +11,8 @@ namespace Zuplae.Aulas.Atv0012.Data
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Produto> Produtos { get; set; }
 
+        public DbSet<Usuario> Usuarios { get; set; }
+
 
     }
 }
