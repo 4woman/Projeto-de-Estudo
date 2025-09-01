@@ -10,10 +10,12 @@ namespace Zuplae.Aulas.Atv0012.Web.Extensions
             services.AddScoped<IService<Endereco>, EnderecoService>();
             services.AddScoped<IService<Fornecedor>, FornecedorService>();
             services.AddScoped<IService<Produto>, ProdutoService>();
+            services.AddScoped<IService<Usuario>, UsuarioService>();
 
             services.AddScoped<EnderecoService>();
             services.AddScoped<FornecedorService>();
             services.AddScoped<ProdutoService>();
+            services.AddScoped<UsuarioService>();
         }
     }
 }

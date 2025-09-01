@@ -15,7 +15,7 @@ namespace Zuplae.Aulas.Atv0012.Servics
             _context = context;
         }
         #region Cadastrar
-        public int Cadastrar(M model)
+        public virtual int Cadastrar(M model)
         {
                 _context.Add(model);
                 _context.SaveChanges();
@@ -24,7 +24,7 @@ namespace Zuplae.Aulas.Atv0012.Servics
         #endregion
 
         #region Editar
-            public bool Editar(M model)
+            public virtual bool Editar(M model)
             {
                 var modelOriginal = ObterPorId(model.Id);
 

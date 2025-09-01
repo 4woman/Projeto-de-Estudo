@@ -13,5 +13,11 @@ namespace Zuplae.Aulas.Atv0012.Servics
         public UsuarioService(OrganizerContext context) : base(context)
         {
         }
+
+        public override int Cadastrar(Usuario model)
+        {
+            model.DataCadastro = DateTime.Now;
+            return base.Cadastrar(model);
+        }
     }
 }
