@@ -22,10 +22,15 @@ namespace Zuplae.Aulas.Atv0012.Models
         [Required(ErrorMessage = "Informe o perfil")]
         public PerfilEnum Perfil { get; set; }
     
-        public string Senha { get; set; }
+        public string Senha { get; set; } = string.Empty;
 
         public DateTime DataCadastro { get; set; }
 
         public DateTime? DataAtualizacao { get; set; }
+
+        public bool SenhaValida(string senha)
+        {
+            return Senha == senha;
+        }
     }
 }
