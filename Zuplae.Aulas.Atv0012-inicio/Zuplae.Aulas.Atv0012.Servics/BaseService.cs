@@ -58,7 +58,7 @@ namespace Zuplae.Aulas.Atv0012.Servics
         #endregion
 
         #region Deletar
-            public bool Deletar(int id)
+            public virtual bool Deletar(int id)
             {
                 this.modelOriginal = this.ObterPorId(id);
                 if (this.modelOriginal != null)

@@ -1,21 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Zuplae.Aulas.Atv0012.Models;
 using Zuplae.Aulas.Atv0012.Servics;
+using Zuplae.Aulas.Atv0012.Web.Helper;
 
 namespace Zuplae.Aulas.Atv0012.Web.Controllers
 {
     public class LoginController : Controller
     {
         private readonly UsuarioService _usuarioService;
+        private readonly ISessao _sessao;
 
-        public LoginController(UsuarioService usuarioService)
+        public LoginController(UsuarioService usuarioService, ISessao sessao)
         {
             _usuarioService = usuarioService;
+            _sessao = sessao;
         }
         public IActionResult Index()
         {
+            //se usuario estiver logado, redirecionar para a home
+            if (_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
             return View();
         }
+
+        
 
         [HttpPost]
         public IActionResult Entrar(LoginUsuario loginModel)
@@ -29,6 +36,7 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
                     {
                         if (usuario.SenhaValida(loginModel.Senha))
                         {
+                            _sessao.CriarSessaoDoUsuario(usuario);
                             return RedirectToAction("Index", "Home");
 
                         }
