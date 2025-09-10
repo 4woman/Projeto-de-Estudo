@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Zuplae.Aulas.Atv0012.Models;
 using Zuplae.Aulas.Atv0012.Servics;
+using Zuplae.Aulas.Atv0012.Web.Filters;
 
 namespace Zuplae.Aulas.Atv0012.Web.Controllers
 {
+    [PaginaParaUsuarioLogado]
     public class EnderecoController : Controller
 
     {

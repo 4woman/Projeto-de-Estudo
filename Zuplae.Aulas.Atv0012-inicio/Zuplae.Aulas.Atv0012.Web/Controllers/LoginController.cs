@@ -22,7 +22,11 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
             return View();
         }
 
-        
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoUsuario();
+            return RedirectToAction("Index", "Login");
+        }
 
         [HttpPost]
         public IActionResult Entrar(LoginUsuario loginModel)
