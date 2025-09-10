@@ -7,7 +7,7 @@ using Zuplae.Aulas.Atv0012.Web.Models;
 
 namespace Zuplae.Aulas.Atv0012.Web.Controllers
 {
-    //[PaginaRestritaSomenteAdmin]
+    [PaginaRestritaSomenteAdmin]
     public class UsuarioController : Controller
     {
         private UsuarioService _usuarioService;

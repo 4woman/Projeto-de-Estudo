@@ -27,13 +27,13 @@
                 <form asp-controller="Login" asp-action="Entrar" method="post">
                     <div class="mb-3">
                         <label asp-for="Login" class="form-label"></label>
-                        <input asp-for="Login" class="form-control" id="login" placeholder="Digite seu login" />
+                        <input asp-for="Login" class="form-control" id="login"  />
                         <span asp-validation-for="Login" class="text-danger"></span>
                     </div>
 
                     <div class="mb-3">
                         <label asp-for="Senha" class="form-label"></label>
-                        <input asp-for="Senha" type="password" class="form-control" id="senha" placeholder="Digite sua senha" />
+                        <input asp-for="Senha" type="password" class="form-control" id="senha"  />
                         <span asp-validation-for="Senha" class="text-danger"></span>
                     </div>
 
