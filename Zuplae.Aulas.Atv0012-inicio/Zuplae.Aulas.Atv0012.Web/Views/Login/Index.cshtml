@@ -1,31 +1,56 @@
 ﻿@model Zuplae.Aulas.Atv0012.Models.LoginUsuario
+
 @{
     Layout = "_LayoutDeslogada";
     ViewData["Title"] = "Login";
 }
 
-@if (TempData["MensagemErro"] != null)
-{
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" arial-label="Close">X</button>
-        @TempData["MensagemErro"]
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-lg rounded-3">
+            <div class="card-header bg-primary text-white rounded-top-4">
+                <h3 class="mb-0"><i class="bi bi-box-arrow-in-right"></i> Acesso ao Sistema</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-secondary mb-3">Informe seus dados para entrar</h4>
+                <hr />
+
+                @if (TempData["MensagemErro"] != null)
+                {
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <div>@TempData["MensagemErro"]</div>
+                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <form asp-controller="Login" asp-action="Entrar" method="post">
+                    <div class="mb-3">
+                        <label asp-for="Login" class="form-label"></label>
+                        <input asp-for="Login" class="form-control" id="login" placeholder="Digite seu login" />
+                        <span asp-validation-for="Login" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Senha" class="form-label"></label>
+                        <input asp-for="Senha" type="password" class="form-control" id="senha" placeholder="Digite sua senha" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-box-arrow-in-right"></i> Entrar
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
-
-<form asp-controller="Login" asp-action="Entrar" method="post">
-    <div class="mb-3">
-        <label for="login" class="form-label">Login</label>
-        <input type="text" asp-for="Login" class="form-control" id="login" />
-        <span asp-validation-for="Login" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label for="senha" class="form-label">Senha</label>
-        <input type="password" asp-for="Senha" class="form-control" id="senha" />
-        <span asp-validation-for="Senha" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-</form>
-
-
-
-

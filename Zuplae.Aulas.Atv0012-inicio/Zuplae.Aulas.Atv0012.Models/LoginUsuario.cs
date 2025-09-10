@@ -11,7 +11,7 @@ namespace Zuplae.Aulas.Atv0012.Models
     {
         [Required(ErrorMessage = "Digite o login")]
         public string Login {  get; set; } = string.Empty;
-        [Required(ErrorMessage = "Digite o senha")]
+        [Required(ErrorMessage = "Digite a senha")]
         public string Senha { get; set; } = string.Empty;
 
     }

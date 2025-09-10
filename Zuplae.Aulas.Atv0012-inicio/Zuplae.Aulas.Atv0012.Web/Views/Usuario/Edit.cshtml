@@ -2,52 +2,66 @@
 @model Zuplae.Aulas.Atv0012.Web.Models.UsuarioSemSenhaModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Usuário";
 }
 
-<h1>Edit</h1>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg rounded-3">
+            <div class="card-header bg-warning text-dark rounded-top-4">
+                <h3 class="mb-0"><i class="bi bi-pencil-square"></i> Editar Usuário</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-secondary mb-3">Atualize os dados abaixo</h4>
+                <hr />
 
-<h4>Usuario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Nome" class="form-label"></label>
+                        <input asp-for="Nome" class="form-control" placeholder="Digite o nome completo" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Login" class="form-label"></label>
+                            <input asp-for="Login" class="form-control" placeholder="Digite o login" />
+                            <span asp-validation-for="Login" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" placeholder="exemplo@email.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Perfil" class="form-label"></label>
+                        <select asp-for="Perfil" class="form-select" asp-items="Html.GetEnumSelectList<PerfilEnum>()">
+                            <option value="">Selecione</option>
+                        </select>
+                        <span asp-validation-for="Perfil" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> Voltar
+                        </a>
+                        <button type="submit" class="btn btn-warning text-dark">
+                            <i class="bi bi-save"></i> Salvar Alterações
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Login" class="control-label"></label>
-                <input asp-for="Login" class="form-control" />
-                <span asp-validation-for="Login" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Perfil" class="control-label"></label>
-                <select asp-for="Perfil" class="form-control" asp-items="Html.GetEnumSelectList<PerfilEnum>()">
-                    <option value="">Selecione</option>
-                </select>
-                <span asp-validation-for="Perfil" class="text-danger"></span>
-            </div>
-            
-           <br />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
