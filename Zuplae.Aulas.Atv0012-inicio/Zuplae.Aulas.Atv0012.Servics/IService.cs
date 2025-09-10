@@ -9,6 +9,7 @@ namespace Zuplae.Aulas.Atv0012.Servics
 {
     public interface IService <T>
     {
+        
         int Cadastrar(T model);
         bool Editar(T model);
         List<T> Listar();

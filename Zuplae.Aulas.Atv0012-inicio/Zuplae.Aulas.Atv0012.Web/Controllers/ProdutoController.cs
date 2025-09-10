@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Zuplae.Aulas.Atv0012.Models;
 using Zuplae.Aulas.Atv0012.Servics;
+using Zuplae.Aulas.Atv0012.Web.Filters;
 using Zuplae.Aulas.Atv0012.Web.Models;
 
 namespace Zuplae.Aulas.Atv0012.Web.Controllers
 {
+    [PaginaParaUsuarioLogado]
     public class ProdutoController : Controller
     {
         private FornecedorService _fornecedorService;

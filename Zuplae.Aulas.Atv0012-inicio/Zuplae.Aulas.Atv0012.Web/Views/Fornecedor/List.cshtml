@@ -1,51 +1,76 @@
 ﻿@model IEnumerable<Zuplae.Aulas.Atv0012.Models.Fornecedor>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "Lista de Fornecedores";
 }
 
-<h1>Listas</h1>
+<div class="container mt-4">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-dark text-white rounded-top-4 d-flex justify-content-between align-items-center flex-wrap">
+            <h3 class="mb-0"><i class="bi bi-people"></i> Lista de Fornecedores</h3>
 
-<p>
-    <a asp-action="Create" class="btn btn-success">
-        <i class="bi bi-plus-circle"></i> Novo Cadastro
-    </a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.RazaoSocial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CNPJ)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RazaoSocial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CNPJ)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.Endereco.Logradouro) - @Html.DisplayFor(modelItem => item.Endereco.Numero) -
-                    @Html.DisplayFor(modelItem => item.Endereco.Cidade)
-            </td>
+            <!-- Campo de busca em tempo real -->
+            <input type="text" id="searchInput" class="form-control w-auto ms-3" placeholder="Buscar fornecedor..." />
 
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
-                    @Html.ActionLink("Excluir", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Tem certeza que deseja excluir este item?');" })
-                </td>
+            <a asp-action="Create" class="btn btn-success ms-3">
+                <i class="bi bi-plus-circle"></i> Novo Cadastro
+            </a>
+        </div>
 
-        </tr>
-}
-    </tbody>
-</table>
+        <div class="card-body p-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle" id="fornecedorTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.RazaoSocial)</th>
+                            <th>@Html.DisplayNameFor(model => model.CNPJ)</th>
+                            <th>@Html.DisplayNameFor(model => model.Endereco)</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.RazaoSocial)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CNPJ)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Endereco.Logradouro), @Html.DisplayFor(modelItem => item.Endereco.Numero) - @Html.DisplayFor(modelItem => item.Endereco.Cidade)</td>
+                                <td class="text-center">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary me-1">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este item?');">
+                                        <i class="bi bi-trash"></i> Excluir
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <p id="noResults" class="text-center text-muted mt-3" style="display:none;">Nenhum fornecedor encontrado.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#fornecedorTable tbody tr');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const razao = row.cells[0].innerText.toLowerCase();
+                const cnpj = row.cells[1].innerText.toLowerCase();
+
+                if (razao.includes(filter) || cnpj.includes(filter)) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        });
+    </script>

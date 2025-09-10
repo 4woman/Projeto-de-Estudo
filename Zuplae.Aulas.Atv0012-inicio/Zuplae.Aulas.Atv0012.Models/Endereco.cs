@@ -24,18 +24,9 @@ namespace Zuplae.Aulas.Atv0012.Models
                 this._estado = value;
         }   }
 
-        private string _cep;
-        public string Cep
-        {
-            get { return _cep; }
-            set {
-                if (string.IsNullOrWhiteSpace(value) || value.Length != 8 || !long.TryParse(value, out _))
-                {
-                    throw new Exception("CEP inválido. Deve ter 8 caracteres numéricos.");
-                }
-                this._cep = value;
-            }
-        }
+        
+        public string Cep { get; set; }
+        
         #endregion
 
         #region Construtores

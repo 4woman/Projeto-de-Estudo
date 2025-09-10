@@ -1,60 +1,91 @@
 ﻿@model Zuplae.Aulas.Atv0012.Models.Endereco
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Endereço";
 }
 
-<h1>Edit</h1>
 
-<h4>Endereco</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Logradouro" class="control-label"></label>
-                <input asp-for="Logradouro" class="form-control" />
-                <span asp-validation-for="Logradouro" class="text-danger"></span>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg rounded-3">
+            <div class="card-header bg-primary text-white rounded-top-4">
+                <h3 class="mb-0"><i class="bi bi-building"></i> Editar o Endereço</h3>
             </div>
-            <div class="form-group">
-                <label asp-for="Numero" class="control-label"></label>
-                <input asp-for="Numero" class="form-control" />
-                <span asp-validation-for="Numero" class="text-danger"></span>
+            <div class="card-body">
+                <h4 class="card-title text-secondary mb-3">Atualize os dados abaixo</h4>
+                <hr />
+
+                <form method="post" asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Logradouro" class="form-label"></label>
+                        <input asp-for="Logradouro" class="form-control" placeholder="Ex: Rua das Flores" />
+                        <span asp-validation-for="Logradouro" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Numero" class="form-label"></label>
+                            <input asp-for="Numero" class="form-control" placeholder="Ex: 123" />
+                            <span asp-validation-for="Numero" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Cep" class="form-label"></label>
+                            <input asp-for="Cep" class="form-control" id="cep" placeholder="Ex: 80000-000" />
+                            <span asp-validation-for="Cep" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Bairro" class="form-label"></label>
+                        <input asp-for="Bairro" class="form-control" placeholder="Ex: Centro" />
+                        <span asp-validation-for="Bairro" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <label asp-for="Cidade" class="form-label"></label>
+                            <input asp-for="Cidade" class="form-control" placeholder="Ex: Curitiba" />
+                            <span asp-validation-for="Cidade" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="Estado" class="form-label"></label>
+                            <input asp-for="Estado" class="form-control" placeholder="Ex: PR" maxlength="2" />
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="List" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> Voltar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Salvar Alterações
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Bairro" class="control-label"></label>
-                <input asp-for="Bairro" class="form-control" />
-                <span asp-validation-for="Bairro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cidade" class="control-label"></label>
-                <input asp-for="Cidade" class="form-control" />
-                <span asp-validation-for="Cidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cep" class="control-label"></label>
-                <input asp-for="Cep" class="form-control" />
-                <span asp-validation-for="Cep" class="text-danger"></span>
-            </div><br/>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index" class="btn btn-secondary">
-        <i class="bi bi-arrow-left"></i> Voltar
-    </a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Máscara simples para CEP (formato 00000-000)
+        document.getElementById("cep").addEventListener("input", function (e) {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.length > 5) {
+                value = value.substring(0, 5) + "-" + value.substring(5, 8);
+            }
+            e.target.value = value;
+        });
+    </script>
 }
