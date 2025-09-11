@@ -15,6 +15,8 @@ namespace Zuplae.Aulas.Atv0012.Servics
         List<T> Listar();
         T ListarPorId(int id);
         bool Deletar(int id);
+
+       
      
     }
 }

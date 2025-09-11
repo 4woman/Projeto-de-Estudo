@@ -22,6 +22,11 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
             return View();
         }
 
+        public IActionResult RedefinirSenha()
+        {
+            return View();
+        }
+
         public IActionResult Sair()
         {
             _sessao.RemoverSessaoUsuario();
@@ -57,6 +62,33 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
                 TempData["MensagemErro"] = $"Ops, não conseguimos realizar seu login, tente novamente, detalhe do erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
+        }
+
+        [HttpPost]
+        public IActionResult EnviarLinkParaRedefinirSenha(RedefinirSenha redefinirSenha)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Usuario usuario = _usuarioService.BuscarPorEmailELogin(redefinirSenha.Email, redefinirSenha.Login);
+                    if (usuario != null)
+                    {
+                        TempData["MensagemSucesso"] = $"Enviamos para seu email cadastrar uma nova senha.";
+                        return RedirectToAction("Index", "Login");
+                    }
+
+                    TempData["MensagemErro"] = $"Não conseguimos redefinir sua senha. Por favor, verifique os dados informados.";
+
+                }
+                return View("Index");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos redefinir sua senha, tente novamente, detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+
         }
     }
 }

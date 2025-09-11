@@ -19,6 +19,7 @@ namespace Zuplae.Aulas.Atv0012.Servics
         public override int Cadastrar(Usuario model)
         {
             model.DataCadastro = DateTime.Now;
+            model.SetSenhaHash();  
             return base.Cadastrar(model);
         }
 
@@ -26,6 +27,11 @@ namespace Zuplae.Aulas.Atv0012.Servics
         {
             return _context.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
 
+        }
+
+        public Usuario BuscarPorEmailELogin(string email, string login)
+        {
+            return _context.Usuarios.FirstOrDefault(x => x.Email.ToUpper() == email.ToUpper() && x.Login.ToUpper() == login.ToUpper());
         }
     }
 }

@@ -1,0 +1,63 @@
+﻿@model Zuplae.Aulas.Atv0012.Models.RedefinirSenha
+
+@{
+    Layout = "_LayoutDeslogada";
+    ViewData["Title"] = "Redefinir Senha";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-lg rounded-3">
+            <div class="card-header bg-warning text-dark rounded-top-4">
+                <h3 class="mb-0"><i class="bi bi-key-fill"></i> Redefinir Senha</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-secondary mb-3">Crie uma nova senha para acessar sua conta</h4>
+                <p class="text-muted">Digite e confirme sua nova senha nos campos abaixo.</p>
+                <hr />
+
+
+                @if (TempData["MensagemErro"] != null)
+                {
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <div>@TempData["MensagemErro"]</div>
+                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+
+                <form asp-controller="Login" asp-action="EnviarLinkParaRedefinirSenha" method="post">
+                    <div class="mb-3">
+                        <label asp-for="Login" class="form-label"></label>
+                        <input asp-for="Login" class="form-control" id="login" />
+                        <span asp-validation-for="Login" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" type="email" class="form-control" id="email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Index" asp-asp-controller="Login" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> Voltar
+                        </a>
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-save"></i> Redefinir Senha
+                        </button>
+                    </div>
+                </form>
+                <br />
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

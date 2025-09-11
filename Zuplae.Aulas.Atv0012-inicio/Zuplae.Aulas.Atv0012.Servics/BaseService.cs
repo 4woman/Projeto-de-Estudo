@@ -79,6 +79,8 @@ namespace Zuplae.Aulas.Atv0012.Servics
         {
             return _context.Set<M>().FirstOrDefault(e => e.Id == id);
         }
+
+      
         #endregion
     }
 }
