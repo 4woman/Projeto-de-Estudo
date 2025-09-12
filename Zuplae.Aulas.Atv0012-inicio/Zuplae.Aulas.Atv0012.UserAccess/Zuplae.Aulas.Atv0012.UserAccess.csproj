@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Zuplae.Aulas.Atv0012.Models\Zuplae.Aulas.Atv0012.Models.csproj" />
+  </ItemGroup>
+
 </Project>

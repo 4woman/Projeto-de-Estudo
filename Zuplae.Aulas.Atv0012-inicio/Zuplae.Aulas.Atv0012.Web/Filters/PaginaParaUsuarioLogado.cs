@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
-using Zuplae.Aulas.Atv0012.Models;
+using Zuplae.Aulas.Atv0012.UserAccess;
 
 namespace Zuplae.Aulas.Atv0012.Web.Filters
 {

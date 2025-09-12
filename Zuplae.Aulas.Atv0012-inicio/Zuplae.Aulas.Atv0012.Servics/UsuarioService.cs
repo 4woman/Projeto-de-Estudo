@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Zuplae.Aulas.Atv0012.Data;
-using Zuplae.Aulas.Atv0012.Models;
+﻿using Zuplae.Aulas.Atv0012.Data;
+using Zuplae.Aulas.Atv0012.UserAccess;
 
 namespace Zuplae.Aulas.Atv0012.Servics
 {

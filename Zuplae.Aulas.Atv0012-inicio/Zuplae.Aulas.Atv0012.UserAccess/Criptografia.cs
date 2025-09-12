@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Zuplae.Aulas.Atv0012.Web.Helper
+namespace Zuplae.Aulas.Atv0012.UserAccess
 {
     public static class Criptografia
     {

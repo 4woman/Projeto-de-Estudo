@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zuplae.Aulas.Atv0012.Models;
 
-namespace Zuplae.Aulas.Atv0012.Models
+namespace Zuplae.Aulas.Atv0012.UserAccess
 {
     public class RedefinirSenha : BaseModel
     {

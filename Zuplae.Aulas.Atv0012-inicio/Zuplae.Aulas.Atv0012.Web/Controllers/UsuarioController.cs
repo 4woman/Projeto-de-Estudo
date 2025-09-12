@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Zuplae.Aulas.Atv0012.Models;
+using Zuplae.Aulas.Atv0012.UserAccess;
 using Zuplae.Aulas.Atv0012.Servics;
 using Zuplae.Aulas.Atv0012.Web.Filters;
 using Zuplae.Aulas.Atv0012.Web.Models;

@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Zuplae.Aulas.Atv0012.Data\Zuplae.Aulas.Atv0012.Data.csproj" />
     <ProjectReference Include="..\Zuplae.Aulas.Atv0012.Models\Zuplae.Aulas.Atv0012.Models.csproj" />
     <ProjectReference Include="..\Zuplae.Aulas.Atv0012.Servics\Zuplae.Aulas.Atv0012.Servics.csproj" />
+    <ProjectReference Include="..\Zuplae.Aulas.Atv0012.UserAccess\Zuplae.Aulas.Atv0012.UserAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>
