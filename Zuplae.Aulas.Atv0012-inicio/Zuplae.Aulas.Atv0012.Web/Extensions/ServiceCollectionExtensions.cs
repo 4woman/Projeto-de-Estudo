@@ -23,6 +23,7 @@ namespace Zuplae.Aulas.Atv0012.Web.Extensions
             // HttpContext e Sessão
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ISessao, Sessao>();
+            services.AddScoped<IEmail, Email>();
             services.AddSession(options =>
             {
                 

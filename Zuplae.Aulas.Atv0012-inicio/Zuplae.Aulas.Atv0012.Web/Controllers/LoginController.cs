@@ -9,11 +9,13 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
     {
         private readonly UsuarioService _usuarioService;
         private readonly ISessao _sessao;
+        private readonly IEmail _email;
 
-        public LoginController(UsuarioService usuarioService, ISessao sessao)
+        public LoginController(UsuarioService usuarioService, ISessao sessao, IEmail email)
         {
             _usuarioService = usuarioService;
             _sessao = sessao;
+            _email = email;
         }
         public IActionResult Index()
         {
@@ -74,12 +76,23 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
                     Usuario usuario = _usuarioService.BuscarPorEmailELogin(redefinirSenha.Email, redefinirSenha.Login);
                     if (usuario != null)
                     {
-                        TempData["MensagemSucesso"] = $"Enviamos para seu email cadastrar uma nova senha.";
-                        return RedirectToAction("Index", "Login");
+                        string novaSenha = usuario.GerarNovaSenha();
+                        
+                        string mensagem = $"Sua nova senha é: {novaSenha}";
+                        bool emailEnviado = _email.Enviar(usuario.Email, "Sistema Frota .NET - Nova Senha", mensagem);
+                        if (emailEnviado) 
+                        {
+                            _usuarioService.Editar(usuario);
+                            TempData["MensagemSucesso"] = $"Enviamos para seu email cadastrar uma nova senha.";
+                        }
+                        else
+                        {
+                            TempData["MensagemErro"] = $"Não conseguimos enviar e-mail. Por favor, tente novamente.";
+                        }
+                            return RedirectToAction("Index", "Login");
                     }
 
                     TempData["MensagemErro"] = $"Não conseguimos redefinir sua senha. Por favor, verifique os dados informados.";
-
                 }
                 return View("Index");
             }
@@ -92,3 +105,7 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
         }
     }
 }
+
+
+
+
