@@ -1,0 +1,77 @@
+﻿@using Zuplae.Aulas.Atv0012.UserAccess
+@model IEnumerable<Zuplae.Aulas.Atv0012.UserAccess.Usuario>
+
+@{
+    ViewData["Title"] = "Lista de Usuários";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-dark text-white rounded-top-4 d-flex justify-content-between align-items-center">
+            <h3 class="mb-0"><i class="bi bi-people"></i> Lista de Usuários</h3>
+            <a asp-action="Create" class="btn btn-success">
+                <i class="bi bi-person-plus"></i> Novo Usuário
+            </a>
+        </div>
+        <div class="card-body p-4">
+
+            <div class="mb-3">
+                <input type="text" id="searchInput" class="form-control" placeholder="Buscar usuário..." />
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                            <th>@Html.DisplayNameFor(model => model.Login)</th>
+                            <th>@Html.DisplayNameFor(model => model.Email)</th>
+                            <th>@Html.DisplayNameFor(model => model.Perfil)</th>
+                            <th>@Html.DisplayNameFor(model => model.DataCadastro)</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTable">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Login)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td>
+                                    @(item.Perfil == PerfilEnum.Admin ? "Administrador" : "Usuário")
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.DataCadastro)</td>
+                                <td class="text-center">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary me-1">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger"
+                                       onclick="return confirm('Tem certeza que deseja excluir este usuário?');">
+                                        <i class="bi bi-trash"></i> Excluir
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Busca em tempo real
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keyup', function () {
+            const filter = searchInput.value.toLowerCase();
+            const rows = document.querySelectorAll('#userTable tr');
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+    </script>
+}

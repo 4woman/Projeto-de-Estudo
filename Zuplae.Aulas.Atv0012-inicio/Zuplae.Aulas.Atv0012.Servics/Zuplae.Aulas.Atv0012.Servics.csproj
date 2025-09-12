@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Zuplae.Aulas.Atv0012.Data\Zuplae.Aulas.Atv0012.Data.csproj" />
+    <ProjectReference Include="..\Zuplae.Aulas.Atv0012.Models\Zuplae.Aulas.Atv0012.Models.csproj" />
+    <ProjectReference Include="..\Zuplae.Aulas.Atv0012.UserAccess\Zuplae.Aulas.Atv0012.UserAccess.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,53 @@
+﻿@model Zuplae.Aulas.Atv0012.Web.Models.FornecedorViewModel
+
+@{
+    ViewData["Title"] = "Cadastro do Fornecedor";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h3 class="mb-0"><i class="bi bi-building"></i> Cadastro do Fornecedor</h3>
+        </div>
+        <div class="card-body p-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Fornecedor.RazaoSocial" class="form-label fw-semibold"></label>
+                    <input asp-for="Fornecedor.RazaoSocial" class="form-control" placeholder="Digite a razão social" />
+                    <span asp-validation-for="Fornecedor.RazaoSocial" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Fornecedor.CNPJ" class="form-label fw-semibold"></label>
+                    <input asp-for="Fornecedor.CNPJ" class="form-control" placeholder="Digite o CNPJ" />
+                    <span asp-validation-for="Fornecedor.CNPJ" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Endereço</label>
+                    <select asp-for="Fornecedor.Endereco.Id" asp-items="Model.Enderecos" class="form-select">
+                        <option value="">Selecione um Endereço</option>
+                    </select>
+                    <span asp-validation-for="Fornecedor.Endereco.Id" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left"></i> Voltar
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-save"></i> Salvar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

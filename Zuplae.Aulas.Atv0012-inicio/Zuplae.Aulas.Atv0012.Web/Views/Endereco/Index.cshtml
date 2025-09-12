@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Sistema de Endereços";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary"> Módulo de Endereços</h1>
+        <p class="lead text-muted">Gerencie seus endereços de forma rápida e simples.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-body py-5">
+                    <div class="d-flex justify-content-center flex-wrap gap-4">
+
+                        <!-- Botão Cadastrar -->
+                        <a class="btn btn-success btn-lg action-btn"
+                           asp-controller="Endereco" asp-action="Create"
+                           title="Cadastrar Endereço">
+                            <i class="bi bi-plus-circle"></i>
+                            <span>Cadastrar</span>
+                        </a>
+
+                        <!-- Botão Listar -->
+                        <a class="btn btn-primary btn-lg action-btn"
+                           asp-controller="Endereco" asp-action="List"
+                           title="Listar Endereços">
+                            <i class="bi bi-list-ul"></i>
+                            <span>Listar</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 150px;
+        height: 120px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in-out;
+        gap: 8px;
+    }
+
+        .action-btn i {
+            font-size: 2rem;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+</style>
