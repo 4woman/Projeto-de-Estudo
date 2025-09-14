@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   app:
-    build: .
+    build:
+      context: ../  # raiz da solução, onde estão todos os projetos
+      dockerfile: Zuplae.Aulas.Atv0012.Web/Dockerfile
     container_name: aspnet_app
     ports:
       - "8080:8080"
