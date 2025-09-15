@@ -29,5 +29,5 @@ jobs:
         context: ./Zuplae.Aulas.Atv0012-inicio
         file: ./Zuplae.Aulas.Atv0012-inicio/Dockerfile
         push: true
-        tags: daniveltper/zuplae-app:latest
+        tags: danivelter/zuplae-app:latest
 
