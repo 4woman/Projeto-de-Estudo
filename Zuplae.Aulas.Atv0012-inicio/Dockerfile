@@ -26,6 +26,9 @@ COPY --from=build /app/publish .
 # Expor porta
 EXPOSE 8080
 
+# Configurar para rodar na porta definida pelo Render
+ENV ASPNETCORE_URLS=http://+:${PORT}
+
 # Rodar o app
 ENTRYPOINT ["dotnet", "Zuplae.Aulas.Atv0012.Web.dll"]
 
