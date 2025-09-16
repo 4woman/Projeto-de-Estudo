@@ -85,14 +85,14 @@ namespace Zuplae.Aulas.Atv0012.Web.Controllers
 
             return View(model);
         }
-
-
-
         public IActionResult Delete(int id)
         {
             _usuarioService.Deletar(id);
             return RedirectToAction("List");
         }
+
+
+
     }
 }
 
