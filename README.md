@@ -53,6 +53,9 @@ docker run -p 8080:80 danivelter/zuplae-app:latest
 O projeto está hospedado na plataforma Render, com atualizações automáticas via GitHub Actions e Docker Hub.
 
 👉 [Clique aqui para acessar o sistema](https://zuplae-app-latest.onrender.com)
+<br/>
+Login: Admin <br/>
+Senha: 123
 
 ## 👩‍💻 Contribuição
 Sinta-se à vontade para abrir issues ou enviar pull requests. Toda contribuição é bem-vinda!
