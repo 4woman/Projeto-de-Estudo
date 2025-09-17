@@ -27,6 +27,11 @@ builder.Services.AddDbContext<OrganizerContext>(options =>
 builder.Services.AddAppServices();
 
 
+// Configuração de sessão e controllers (se já tiver)
+builder.Services.AddControllers();
+builder.Services.AddSession();
+
+
 
 var app = builder.Build();
 

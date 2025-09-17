@@ -10,4 +10,9 @@ services:
     environment:
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__DefaultConnection=Host=ep-autumn-base-a8jyb42o-pooler.eastus2.azure.neon.tech;Database=neondb;Username=neondb_owner;Password=npg_URVbxQ7Ef4Kl;SSL Mode=Require;Trust Server Certificate=true
+      - SMTP__UserName=${SMTP_USERNAME}
+      - SMTP__Senha=${SMTP_PASSWORD}
+      - SMTP__Host=smtp.gmail.com
+      - SMTP__Nome=frota.Net
+      - SMTP__Porta=587
 
