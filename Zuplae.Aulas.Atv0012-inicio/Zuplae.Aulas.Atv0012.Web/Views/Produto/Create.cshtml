@@ -14,19 +14,19 @@
                 <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
                 <div class="mb-3">
-                    <label asp-for="Produto.NomeProduto" class="form-label fw-semibold"></label>
+                    <label asp-for="Produto.NomeProduto" class="form-label fw-semibold">Produto</label>
                     <input asp-for="Produto.NomeProduto" class="form-control" placeholder="Digite o nome do produto" />
                     <span asp-validation-for="Produto.NomeProduto" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Produto.CodigoProduto" class="form-label fw-semibold"></label>
+                    <label asp-for="Produto.CodigoProduto" class="form-label fw-semibold">Código</label>
                     <input asp-for="Produto.CodigoProduto" class="form-control" placeholder="Digite o código do produto" />
                     <span asp-validation-for="Produto.CodigoProduto" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Produto.Preco" class="form-label fw-semibold"></label>
+                    <label asp-for="Produto.Preco" class="form-label fw-semibold">Preço</label>
                     <input asp-for="Produto.Preco" type="number" step="0.01" class="form-control" placeholder="Digite o preço" />
                     <span asp-validation-for="Produto.Preco" class="text-danger"></span>
                 </div>
