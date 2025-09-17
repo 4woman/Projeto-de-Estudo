@@ -30,4 +30,6 @@ jobs:
         file: ./Zuplae.Aulas.Atv0012-inicio/Dockerfile
         push: true
         tags: danivelter/zuplae-app:latest
-
+        build-args: |
+          SMTP__UserName=${{ secrets.SMTP_USERNAME }}
+          SMTP__Senha=${{ secrets.SMTP_SENHA }}
