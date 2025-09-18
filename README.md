@@ -57,6 +57,19 @@ O projeto está hospedado na plataforma Render, com atualizações automáticas 
 Login: Admin <br/>
 Senha: 123
 
+## 🌟 Apresentação do Projeto
+
+Confira abaixo a demonstração em vídeo do funcionamento da aplicação:
+
+<p align="center">
+  <a href="https://youtu.be/M_NnxsiZdd8" target="_blank">
+    <img src="https://img.youtube.com/vi/M_NnxsiZdd8/0.jpg" alt="Demonstração do projeto" width="600">
+  </a>
+</p>
+
+🔗 [Clique aqui para assistir diretamente no YouTube](https://youtu.be/M_NnxsiZdd8)
+
+
 ## 👩‍💻 Contribuição
 Sinta-se à vontade para abrir issues ou enviar pull requests. Toda contribuição é bem-vinda!
 
