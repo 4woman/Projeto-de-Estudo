@@ -55,7 +55,9 @@ O projeto está hospedado na plataforma Render, com atualizações automáticas 
 👉 [Clique aqui para acessar o sistema](https://zuplae-app-latest.onrender.com)
 <br/>
 Login: Admin <br/>
-Senha: 123
+Senha: 123 <br/>
+Login: user <br/>
+Senha: 12345
 
 ## 🌟 Apresentação do Projeto
 
